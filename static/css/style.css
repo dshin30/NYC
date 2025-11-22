@@ -1,0 +1,90 @@
+<link rel="stylesheet" href="static/css/style.css">
+/* ----------- GLOBAL PAGE LAYOUT ----------- */
+body {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 40px;
+    font-family: "Helvetica", sans-serif;
+    line-height: 1.7;
+}
+
+h1, h2, h3 {
+    text-align: center;
+    font-weight: 700;
+}
+
+.subtitle {
+    text-align: center;
+    color: #444;
+    margin-top: -10px;
+}
+
+/* ----------- SECTION SPACING ----------- */
+section {
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+
+/* ----------- IMAGE CENTERING ----------- */
+.image-center {
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 40px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+}
+
+/* ----------- FIX IMAGE SIZE PRESETS ----------- */
+.img-large {
+    width: 80%;
+}
+
+.img-mid {
+    width: 60%;
+}
+
+.img-small {
+    width: 40%;
+}
+
+/* ----------- FIGURE CAPTION ----------- */
+.caption {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 8px;
+    color: #666;
+}
+
+/* ----------- TWO IMAGES SIDE BY SIDE ----------- */
+.image-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 25px 0;
+}
+
+.image-row div {
+    width: 48%;
+    text-align: center;
+}
+
+.image-row img {
+    width: 100%;
+    border-radius: 6px;
+}
+
+.image-row .caption {
+    font-size: 13px;
+}
+
+/* ----------- FOOTER ----------- */
+footer p {
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    margin-top: 40px;
+}
