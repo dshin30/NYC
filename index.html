@@ -4,20 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NYC PM2.5 & Traffic Volume Analysis</title>
-
     <link rel="stylesheet" href="static/css/style.css">
 </head>
 
 <body>
 
-<!-- ================= POSTER HEADER ================= -->
 <header class="poster-header">
     <h1>Air You Can’t See, Risks You Should Know</h1>
     <p class="authors">Dongwoo Shin¹ and Hyunsik Jun¹</p>
     <p class="affiliation">¹George Mason University Korea</p>
 </header>
 
-<!-- ================= SECOND TITLE ================= -->
 <header>
     <h1>NYC PM2.5 & Traffic Volume Analysis (2016–2025)</h1>
     <p class="subtitle">A data-driven story about air quality, traffic behavior, and wildfire impacts.</p>
@@ -26,206 +23,137 @@
 
 
 
-<!-- ================= ABSTRACT ================= -->
-<section id="abstract">
-    <h2>Abstract</h2>
-    <p>
-        In June 2023, New York City briefly recorded some of the worst air quality in the world, even though daily
-        traffic looked mostly normal. This project asks a simple question:
-        <strong>did changes in NYC traffic volume actually drive PM2.5 levels between 2016 and 2025?</strong>
-        Using borough-level data, we compare PM2.5 with traffic across three periods—pre-COVID, COVID, and recovery—and highlight the 2023 Canadian wildfire event.
-    </p>
-    <p>
-        Across multiple visualizations, we find <strong>no stable relationship</strong> between traffic and PM2.5.
-        During COVID, traffic patterns changed but PM2.5 did not improve in a consistent way, and the sharp 2023 spike
-        appears clearly tied to wildfire smoke rather than vehicle activity. Our results suggest that while traffic
-        contributes to pollution on individual days,
-        <strong>regional and external factors such as wildfires and long-range transport are far more important for NYC’s PM2.5 trends</strong>.
-    </p>
-</section>
-
-
-
-
-<!-- ================= NYC OVERVIEW ================= -->
-<section id="nyc-intro">
-    <h2>New York City Overview</h2>
-    <p>
-        New York City is one of the most densely populated urban regions in the world.
-        With millions of residents, five major boroughs, and heavy daily traffic, air quality is a critical public health priority.
-    </p>
-
-    <div class="image-center">
-        <img src="static/images/new_york_map.jpeg" alt="NYC borough map" class="img-mid">
-        <p class="caption">Figure 1. The five boroughs of New York City.</p>
-        <p class="figure-description">
-            Our analysis aggregates data for the Bronx, Brooklyn, Manhattan, and Queens.
-            Staten Island appears on the map but is excluded from most plots because of missing or inconsistent traffic records.
-        </p>
-    </div>
-</section>
-
-
-
-
-<!-- ================= PM EXPLANATION ================= -->
+<!-- ================= PM SECTION ================= -->
 <section id="pm25">
-    <h2>What Makes Air Pollution (PM2.5) So Dangerous?</h2>
+    <h2>What Makes PM2.5 So Dangerous?</h2>
+
     <p>
-        Fine particulate matter, known as <strong>PM2.5</strong>, consists of microscopic particles smaller than
-        2.5 micrometers—about 1/30 the width of a human hair. Because they are so tiny, they bypass the body’s natural
-        defenses and travel deep into the lungs and even into the bloodstream.
+        PM2.5 consists of microscopic particles that enter deep lung tissue and even the bloodstream,
+        increasing the risk of major health issues such as heart attacks, stroke, and lung cancer.
     </p>
 
     <div class="image-center">
-        <img src="static/images/pm_lung.jpeg" alt="PM entering lungs" class="img-mid">
-        <p class="caption">Figure 2. PM10, PM2.5, and PM1 penetrating different parts of the respiratory system.</p>
-
+        <img src="static/images/pm_lung.jpeg" class="img-mid">
+        <p class="caption">Figure 2. PM10, PM2.5, and PM1 penetration depths.</p>
         <p class="figure-description">
-            According to the <strong>World Health Organization (WHO)</strong> and the <strong>U.S. Environmental Protection Agency (EPA)</strong>,
-            smaller particles pose a far greater health risk:
-            <br><br>
-            • <strong>PM10</strong> usually stays in the nose and upper airway.<br>
-            • <strong>PM2.5</strong> reaches the bronchi and lung tissue.<br>
-            • <strong>PM1</strong> and ultrafine particles can enter the <strong>bloodstream</strong>, affecting the heart and other organs.
-            <br><br>
-            Extensive medical research (Harvard School of Public Health, 2015–2023) shows that long-term exposure to PM2.5
-            increases the risk of <strong>asthma, heart attacks, stroke, lung cancer, and premature death</strong>.
-            This is why even small changes in PM2.5 levels can drastically affect public health—especially in dense cities like NYC.
+            Smaller particles can bypass the body's natural defenses, reaching lower lung regions and even entering the bloodstream.
+        </p>
+    </div>
+
+    <!-- YEARLY HEATMAP -->
+    <div class="image-center">
+        <img src="static/images/blue.png" class="img-large">
+        <p class="caption">Figure 3. Annual PM2.5 averages by borough (2016–2025).</p>
+        <p class="figure-description">
+            This heatmap shows moderate fluctuations from 2016–2022, followed by a dramatic spike in 2023.
+            The spike aligns with the Canadian wildfire event, illustrating the influence of external pollution transport.
+        </p>
+    </div>
+
+    <!-- HALF-YEAR PM -->
+    <div class="image-center">
+        <img src="static/images/HalfyearPM.png" class="img-large">
+        <p class="caption">Figure 4. Half-year PM2.5 averages (2016–2025).</p>
+        <p class="figure-description">
+            PM2.5 usually follows a seasonal cycle, but the first half of 2023 breaks the pattern with an unusually high value,
+            again corresponding to wildfire smoke transport.
         </p>
     </div>
 </section>
 
 
-<!-- ================= MOVED UP: FIGURE 8 (HALF-YEAR PM) ================= -->
-<div class="image-center">
-    <img src="static/images/HalfyearPM.png" alt="Halfyear PM" class="img-large">
-    <p class="caption">Figure 8. Half-year PM2.5 averages (2016–2025).</p>
-    <p class="figure-description">
-        This half-year PM2.5 breakdown reveals a consistent pattern during most periods, with moderate fluctuations
-        across seasons and years. The first half of 2023, however, shows a dramatic PM2.5 increase far outside the 
-        typical range—corresponding directly to the Canadian wildfire smoke event.
-        This demonstrates how a short yet intense external episode can significantly worsen air quality,
-        overpowering local factors such as traffic or heating emissions.
-    </p>
-</div>
 
 
-<!-- ================= TRAFFIC ================= -->
+<!-- ================= TRAFFIC SECTION ================= -->
 <section id="traffic">
     <h2>Traffic Conditions in NYC</h2>
-    <p>
-        Traffic congestion is one of NYC’s most recognizable features.
-        Vehicle emissions contribute to PM2.5, especially during peak commuting hours,
-        but our analysis tests whether traffic alone is enough to explain long-term air quality.
-    </p>
 
     <div class="image-center">
-        <img src="static/images/ny_traffic.jpeg" alt="NYC traffic" class="img-large">
-        <p class="caption">Figure 3. Heavy traffic commonly observed in Manhattan.</p>
+        <img src="static/images/ny_traffic.jpeg" class="img-large">
+        <p class="caption">Figure 5. Heavy traffic in Manhattan.</p>
         <p class="figure-description">
-            Intuitively, it is easy to assume that “more cars = worse air.”
-            The later figures show that this intuition does not hold when we look at nine years of data across multiple boroughs.
+            NYC traffic is dense throughout the day, but the data shows that high congestion does not always correspond
+            to high PM2.5 levels.
+        </p>
+    </div>
+
+    <p>
+        Traffic is often blamed as the primary contributor to NYC's pollution.
+        To test this assumption, we compare PM2.5 and traffic trends across COVID and recovery.
+    </p>
+</section>
+
+
+
+
+<!-- ================= COVID SECTION ================= -->
+<section id="covid">
+    <h2>COVID-19 & Mobility Changes</h2>
+
+    <div class="image-center">
+        <img src="static/images/covid.jpeg" class="img-large">
+        <p class="caption">Figure 6. COVID-19 pandemic representation.</p>
+        <p class="figure-description">
+            Lockdowns drastically altered mobility patterns across NYC during 2020–2021.
+        </p>
+    </div>
+
+    <div class="image-center">
+        <img src="static/images/pm_traffic_distribution.png" class="img-large">
+        <p class="caption">Figure 7. Median PM2.5 & traffic volume across eras.</p>
+        <p class="figure-description">
+            Surprisingly, traffic volume <strong>increased</strong> in several boroughs during COVID,
+            while PM2.5 did not consistently improve.
+            This indicates that traffic alone does not determine PM2.5 levels.
         </p>
     </div>
 </section>
 
 
-<!-- ================= NEW COVID SECTION ================= -->
-<section id="covid">
-    <h2>COVID-19 & Changes in NYC Traffic</h2>
-
-    <div class="image-center">
-        <img src="static/images/covid.jpeg" alt="COVID impact" class="img-large">
-        <p class="caption">Figure X. COVID-19 pandemic visual representation.</p>
-    </div>
-
-    <p>
-        During COVID-19, we expected NYC traffic to decrease dramatically due to lockdowns and stay-at-home orders.
-        This motivated us to explore how these unusual mobility patterns might be connected to NYC’s air quality.
-        Specifically, we wanted to see whether changes in traffic volume during the pandemic improved PM2.5 levels,
-        worsened them, or had no consistent effect.
-    </p>
-</section>
 
 
-<!-- ================= MOVED DOWN: FIGURE 6 ================= -->
-<div class="image-center">
-    <img src="static/images/pm_traffic_distribution.png" alt="PM Traffic Distribution" class="img-large">
-    <p class="caption">Figure 6. Median PM2.5 and traffic volume before, during, and after COVID.</p>
-    <p class="figure-description">
-        These bar charts compare median PM2.5 and median traffic volume in each borough across three periods:
-        pre-COVID (2016–2019), COVID (2020–2021), and recovery (2022–2025).
-        Contrary to common expectations, traffic volume in our dataset
-        <strong>increased</strong> during the COVID period in several boroughs instead of decreasing.
-        PM2.5 levels did not improve alongside these traffic changes, and in some cases even rose during the 
-        recovery years. 
-        This indicates that traffic variation alone cannot fully explain PM2.5 behavior and that external 
-        environmental influences—such as heating, weather, and wildfire smoke—likely played a stronger role 
-        in shaping PM2.5 trends throughout these years.
-    </p>
-</div>
-
-
-
-
-<!-- ================= WILDFIRE ================= -->
+<!-- ================= WILDFIRE SECTION ================= -->
 <section id="wildfire">
     <h2>Wildfire Smoke Impact</h2>
-    <p>
-        In 2023, massive wildfires in Canada pushed smoke across the East Coast.
-        NYC recorded some of the worst PM2.5 levels in modern history, briefly ranking among the most polluted cities in the world.
-    </p>
 
     <div class="image-row">
         <div>
-            <img src="static/images/canada_wildfrire.webp" alt="Canada wildfire">
-            <p class="caption">Figure 4-a. Canada wildfire event.</p>
+            <img src="static/images/canada_wildfrire.webp">
+            <p class="caption">Figure 8-a. Canada wildfire event.</p>
             <p class="figure-description">
-                Large wildfires inject enormous amounts of fine particulate matter into the atmosphere.
-                Under the right wind conditions, this smoke can travel hundreds or thousands of kilometers and settle over distant
-                cities that did not generate the pollution themselves.
+                Large-scale wildfires sent smoke across the East Coast, affecting cities far beyond the fire zone.
             </p>
         </div>
 
         <div>
-            <img src="static/images/wildfire_ny.jpeg" alt="NYC orange sky">
-            <p class="caption">Figure 4-b. NYC sky turning orange due to wildfire smoke.</p>
+            <img src="static/images/wildfire_ny.jpeg">
+            <p class="caption">Figure 8-b. NYC sky turning orange from smoke.</p>
             <p class="figure-description">
-                The orange sky over Manhattan in June 2023 corresponds to one of the strongest PM2.5 spikes in our dataset.
-                Local traffic did not change dramatically on that day, highlighting how external events can dominate NYC’s air quality.
+                Manhattan experienced severe visibility loss and hazardous PM2.5 levels during early June 2023.
             </p>
         </div>
+    </div>
+
+    <div class="image-center">
+        <img src="static/images/2023.png" class="img-large">
+        <p class="caption">Figure 9. NYC PM2.5 before vs during the 2023 wildfire.</p>
+        <p class="figure-description">
+            PM2.5 jumped from a long-term average of ~6.8 µg/m³ to over 27 µg/m³ during the wildfire period.
+            This demonstrates how extreme external events can overwhelm local emission sources like traffic.
+        </p>
     </div>
 </section>
 
 
 
 
-<!-- ================= VISUALIZATIONS ================= -->
+<!-- ================= RELATIONSHIP VISUALS ================= -->
 <section id="visualizations">
-    <h2>PM2.5 & Traffic Visualizations</h2>
+    <h2>Relationship Between PM2.5 & Traffic</h2>
 
-    <!-- Figure 5 -->
     <div class="image-center">
-        <img src="static/images/blue.png" alt="PM by year" class="img-large">
-        <p class="caption">Figure 5. Annual PM2.5 averages (2016–2025).</p>
-        <p class="figure-description">
-            This heatmap shows how the yearly average PM2.5 changed in each NYC borough from 2016 to 2025.
-            Most years fluctuate within a moderate range, but 2023 stands out as a clear spike—especially in the Bronx
-            and Queens. The pattern suggests that air quality does not improve smoothly over time and can be strongly 
-            affected by short-term external events rather than any gradual reduction in local emissions.
-            PM2.5 levels in early years remain relatively stable, but the 2023 spike demonstrates the influence of
-            regional wildfire smoke, reinforcing that NYC’s PM2.5 is shaped by more than local traffic.
-        </p>
-    </div>
-
-
-    <!-- Figure 7 -->
-    <div class="image-center">
-        <img src="static/images/pm2.5_traffic_volume_distributionbyyear_line.png"
-             alt="PM & Traffic line" class="img-large">
-        <p class="caption">Figure 7. Borough-level PM2.5 and traffic volume by year.</p>
+        <img src="static/images/pm2.5_traffic_volume_distributionbyyear_line.png" class="img-large">
+        <p class="caption">Figure 10. PM2.5 and traffic volume trends (2016–2025).</p>
         <p class="figure-description">
             These line charts show PM2.5 and traffic volume trends from 2016 to 2025 for each borough.
             The colored background bands mark the three eras: pre-COVID, COVID, and recovery.
@@ -237,14 +165,9 @@
         </p>
     </div>
 
-
-    <!-- (Figure 8 was moved upward under PM explanation) -->
-
-
-    <!-- Figure 9 -->
     <div class="image-center">
-        <img src="static/images/PM_vs_Traffic_line.png" alt="PM vs Traffic line" class="img-large">
-        <p class="caption">Figure 9. Daily traffic volume vs PM2.5 (scatter with trend line).</p>
+        <img src="static/images/PM_vs_Traffic_line.png" class="img-large">
+        <p class="caption">Figure 11. Daily PM2.5 vs traffic (scatter with trend line).</p>
         <p class="figure-description">
             Each point in this scatter plot represents one day of data. The points form a wide, diffuse cloud rather
             than a narrow diagonal trend, showing that busy traffic days do not reliably correspond to higher PM2.5.
@@ -256,56 +179,19 @@
             explain much of the observed PM2.5 variation.
         </p>
     </div>
-
 </section>
-
 
 
 
 
 <!-- ================= CONCLUSION ================= -->
-<section id="outro">
-    <h2>Conclusion & Outlook</h2>
-
+<section id="conclusion">
+    <h2>Conclusion</h2>
     <p>
-        Our original question was straightforward:
-        <strong>does NYC traffic determine PM2.5?</strong>
-        After examining nine years of borough-level data, our answer is
-        <strong>“not really.”</strong>
+        The data clearly shows that NYC PM2.5 is shaped far more by external factors such as wildfire smoke,
+        seasonal heating emissions, and regional pollution transport than by traffic alone.
     </p>
-
-    <p>
-        The 2023 Canadian wildfires produced the clearest and strongest PM2.5 spike in the entire dataset,
-        overwhelming the influence of local traffic. This suggests that improving NYC air quality requires strategies addressing
-        regional pollution transport, climate-driven wildfire risk, and building-related emissions.
-    </p>
-
-    <p>
-        Future work could combine mobility data with weather and satellite-based smoke indicators to build predictive models.
-        Even with limitations, the project shows that <strong>“more traffic” is a poor shortcut for “worse air”</strong> in NYC.
-    </p>
-
 </section>
-
-
-
-
-<!-- ================= REFERENCES ================= -->
-<section id="references">
-    <h2>References</h2>
-
-    <p class="reference-item">[1] World Health Organization (2021). <em>Global Air Quality Guidelines: PM2.5.</em></p>
-    <p class="reference-item">[2] U.S. Environmental Protection Agency (2024). <em>Integrated Science Assessment for Particulate Matter.</em></p>
-    <p class="reference-item">[3] Harvard School of Public Health (2015–2023). Research series on long-term PM2.5 exposure.</p>
-    <p class="reference-item">[4] NASA Earth Observatory (2023). <em>Canadian Wildfire Smoke Reaches the U.S. East Coast.</em></p>
-    <p class="reference-item">[5] Heydari et al. (2020). <em>Estimating traffic contribution to PM2.5.</em></p>
-    <p class="reference-item">[6] Brook et al. (2010). <em>Particulate Matter Air Pollution and Cardiovascular Disease.</em></p>
-    <p class="reference-item">[7] NYC DOT. <em>Automated Traffic Volume Counts Dataset.</em></p>
-    <p class="reference-item">[8] OpenAQ. <em>Brooklyn PM2.5 Air Quality Measurements Dataset.</em></p>
-
-</section>
-
-
 
 
 <footer>
