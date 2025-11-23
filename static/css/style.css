@@ -8,6 +8,7 @@
     --card-bg: #ffffff;
     --page-bg: #f5f5f7;
 }
+
 /* ===== HERO SECTION ===== */
 .hero {
     text-align: center;
@@ -17,12 +18,14 @@
     margin-bottom: 40px;
 }
 
+/* HERO 제목 */
 .hero-title {
     font-size: 48px;
     font-weight: 800;
     margin-bottom: 10px;
 }
 
+/* 저자 섹션 */
 .hero-authors {
     font-size: 20px;
     font-weight: 500;
@@ -35,12 +38,18 @@
     margin-bottom: 25px;
 }
 
+/* 문제의 핵심 — project title */
 .hero-project-title {
     font-size: 26px;
     font-weight: 700;
     margin-top: 15px;
+    text-align: center;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
+/* 부제 */
 .hero-subtitle {
     font-size: 18px;
     font-style: italic;
@@ -49,6 +58,7 @@
     margin: 10px auto 0;
 }
 
+/* ===== RESET & BODY ===== */
 *,
 *::before,
 *::after {
@@ -65,7 +75,7 @@ body {
     color: var(--text-main);
 }
 
-/* 기본 문단은 좌측 정렬 + 적당한 폭만 사용 */
+/* 문단 기본 스타일 */
 p {
     text-align: left;
     font-size: 16px;
@@ -75,7 +85,7 @@ p {
     margin-right: auto;
 }
 
-/* 제목들: 가운데 정렬, 카드 안에서 시각적 구분선 추가 */
+/* 제목 공통 스타일 */
 h1, h2, h3 {
     font-weight: 700;
     text-align: center;
@@ -98,8 +108,7 @@ h2::after {
     border-radius: 999px;
 }
 
-
-/* ========== SECONDARY HEADER (부제 / 설명) ========== */
+/* ========== SECONDARY HEADER ========== */
 
 header h1 {
     font-size: 26px;
@@ -117,8 +126,8 @@ header h1 {
 }
 
 /* ========== SECTION CARD STYLE ========== */
-
-section {
+/* 핵심 수정!!! hero는 카드 스타일 적용 제외 */
+section:not(.hero) {
     background: var(--card-bg);
     padding: 32px 40px 36px;
     border-radius: 16px;
@@ -126,7 +135,7 @@ section {
     box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
 }
 
-/* 첫 섹션은 헤더 바로 밑에 조금 더 붙도록 */
+/* abstract는 조금 위로 */
 #abstract {
     margin-top: 24px;
 }
@@ -158,7 +167,7 @@ img {
     width: 40%;
 }
 
-/* 캡션 (연한 회색, 교수님 스타일) */
+/* 캡션(연한 회색) */
 .caption {
     text-align: center;
     font-size: 14px;
@@ -226,7 +235,7 @@ footer p {
     margin-top: 32px;
 }
 
-/* ========== LINKS (혹시 참고 링크 추가할 때 대비) ========== */
+/* ========== LINKS ========== */
 
 a {
     color: #0066cc;
@@ -245,7 +254,7 @@ a:hover {
         padding: 20px 14px 40px;
     }
 
-    section {
+    section:not(.hero) {
         padding: 24px 18px 28px;
         border-radius: 12px;
     }
@@ -283,3 +292,4 @@ a:hover {
         width: 100%;
     }
 }
+
