@@ -263,3 +263,24 @@ a:hover {
         width: 100%;
     }
 }
+
+/* ============================================
+   🔥 HERO 텍스트를 '브라우저 화면 기준' 정중앙 정렬
+   (body padding/width 영향 완전히 무시)
+   ============================================ */
+.hero {
+    position: relative;
+}
+
+.hero > * {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+/* 애니메이션 사용 중이므로 transform 충돌 방지 */
+h2.hero-project-title,
+.hero-title {
+    transform: translateX(-50%);
+}
