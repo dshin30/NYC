@@ -9,19 +9,27 @@
     --page-bg: #f5f5f7;
 }
 
-/* ========== HERO SECTION ========== */
-
+/* ===== HERO SECTION ===== */
 .hero {
-    text-align: center;
-    padding: 60px 20px 50px;
-    background: linear-gradient(to bottom, #f7f9fc, #ffffff);
+    background: linear-gradient(to bottom, #f5f7fa, #ffffff);
     border-bottom: 1px solid #ddd;
     margin-bottom: 40px;
 
-    /* subtle premium look */
-    backdrop-filter: blur(3px);
-    border-radius: 14px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    /* 중앙 정렬을 transform 없이 안정적으로 적용 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* 핵심 */
+    padding: 60px 20px 50px;
+    text-align: center;
+}
+
+/* hero 내부 텍스트 요소들의 폭을 body와 동일하게 맞춤 */
+.hero > * {
+    width: 100%;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hero-title {
@@ -46,10 +54,6 @@
     font-size: 26px;
     font-weight: 700;
     margin-top: 15px;
-    text-align: center;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .hero-subtitle {
@@ -71,24 +75,24 @@
 body {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 30px clamp(10px, 4vw, 40px) 60px;
+    padding: 30px 20px 60px;
     font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-    line-height: 1.75;
+    line-height: 1.7;
     background: var(--page-bg);
     color: var(--text-main);
 }
 
-/* 문단 */
+/* 기본 문단 */
 p {
     text-align: left;
     font-size: 16px;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
     max-width: 780px;
     margin-left: auto;
     margin-right: auto;
 }
 
-/* 제목 */
+/* 제목들 */
 h1, h2, h3 {
     font-weight: 700;
     text-align: center;
@@ -99,15 +103,8 @@ h1, h2, h3 {
 h2 {
     margin-bottom: 26px;
     position: relative;
-    opacity: 0;
-    animation: fadeUp 0.4s ease-out forwards;
 }
 
-@keyframes fadeUp {
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* 제목 밑줄 */
 h2::after {
     content: "";
     display: block;
@@ -116,28 +113,21 @@ h2::after {
     background: var(--accent-green);
     margin: 10px auto 0;
     border-radius: 999px;
-    opacity: 0;
-    transform: scaleX(0.5);
-    animation: underlineFade 0.4s ease-out forwards;
-    animation-delay: 0.2s;
-}
-
-@keyframes underlineFade {
-    to {
-        opacity: 1;
-        transform: scaleX(1);
-    }
 }
 
 /* ========== SECTION CARD STYLE ========== */
 
-.card-section {
-    background: #ffffff;
+section {
+    background: var(--card-bg);
     padding: 32px 40px 36px;
     border-radius: 16px;
     margin: 40px 0;
-    border: 1px solid #ececec;
     box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+}
+
+/* 첫 섹션 */
+#abstract {
+    margin-top: 24px;
 }
 
 /* ========== IMAGES & FIGURES ========== */
@@ -152,12 +142,20 @@ img {
     max-width: 100%;
     height: auto;
     border-radius: 8px;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
 }
 
-.img-large { width: 80%; }
-.img-mid { width: 60%; }
-.img-small { width: 40%; }
+.img-large {
+    width: 80%;
+}
+
+.img-mid {
+    width: 60%;
+}
+
+.img-small {
+    width: 40%;
+}
 
 .caption {
     text-align: center;
@@ -176,7 +174,7 @@ img {
     color: #444444;
 }
 
-/* ========== TWO IMAGES SIDE BY SIDE ========== */
+/* ========== SIDE BY SIDE IMAGES ========== */
 
 .image-row {
     display: flex;
@@ -198,12 +196,15 @@ img {
 /* ========== REFERENCES ========== */
 
 #references {
-    background: #fafafa;
-    border-left: 4px solid var(--accent-green);
-    border-radius: 8px;
-    padding: 26px 32px 30px;
     margin-top: 50px;
+    background: #fbfbfb;
+    border-radius: 14px;
+    padding: 26px 32px 30px;
     box-shadow: 0 3px 14px rgba(0, 0, 0, 0.05);
+}
+
+#references h2 {
+    margin-top: 0;
 }
 
 .reference-item {
@@ -237,9 +238,13 @@ a:hover {
 /* ========== RESPONSIVE DESIGN ========== */
 
 @media (max-width: 900px) {
+    body {
+        padding: 20px 14px 40px;
+    }
 
-    .card-section {
+    section {
         padding: 24px 18px 28px;
+        border-radius: 12px;
     }
 
     .img-large,
@@ -247,13 +252,24 @@ a:hover {
     .img-small {
         width: 100%;
     }
-
-    body {
-        padding: 20px 10px 40px;
-    }
 }
 
 @media (max-width: 720px) {
+    .poster-header h1 {
+        font-size: 34px;
+    }
+
+    .poster-header .authors {
+        font-size: 18px;
+    }
+
+    .poster-header .affiliation {
+        font-size: 16px;
+    }
+
+    header h1 {
+        font-size: 22px;
+    }
 
     .image-row {
         flex-direction: column;
@@ -262,25 +278,4 @@ a:hover {
     .image-row div {
         width: 100%;
     }
-}
-
-/* ============================================
-   🔥 HERO 텍스트를 '브라우저 화면 기준' 정중앙 정렬
-   (body padding/width 영향 완전히 무시)
-   ============================================ */
-.hero {
-    position: relative;
-}
-
-.hero > * {
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-}
-
-/* 애니메이션 사용 중이므로 transform 충돌 방지 */
-h2.hero-project-title,
-.hero-title {
-    transform: translateX(-50%);
 }
