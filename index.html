@@ -6,6 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NYC PM2.5 & Traffic Volume Analysis</title>
     <link rel="stylesheet" href="static/css/style.css">
+
+    <style>
+        /* Let zoomed images overflow instead of being cut */
+        .image-center,
+        .image-row > div {
+            overflow: visible;
+            position: relative;
+        }
+
+        /* Base image behavior: smooth animation + zoom cursor */
+        .image-center img,
+        .image-row img {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: zoom-in;
+            position: relative;
+            z-index: 2;              /* make image sit on top of nearby content */
+            transform-origin: center top;  /* zoom mostly downward */
+        }
+
+        /* Hover (mouse) + Active (finger tap) zoom */
+        .image-center img:hover,
+        .image-row img:hover,
+        .image-center img:active,
+        .image-row img:active {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+        }
+    </style>
 </head>
 
 <body>
@@ -41,24 +69,9 @@
     </ul>
 </section>
 
+
 <!-- ================= WRAPPER: 모든 카드 섹션은 여기 안에 ================= -->
 <div class="page-wrapper">
-
-<!-- ================= NYC BOROUGH MAP ================= -->
-<section id="nyc-map" class="card-section">
-    <h2>NYC Borough Overview</h2>
-
-    <div class="image-center">
-        <img src="static/images/map.jpeg" class="img-large" alt="NYC borough map">
-        <p class="caption">Figure 1. Four NYC boroughs analyzed in this project.</p>
-        <p class="figure-description">
-            Our analysis focuses on four boroughs — <strong>Bronx, Brooklyn, Manhattan, and Queens</strong>.  
-            Staten Island was excluded due to insufficient PM2.5 and traffic data coverage during the study period.  
-            Understanding the spatial distribution of these four boroughs helps interpret borough-level patterns 
-            in both PM2.5 trends and traffic behavior.
-        </p>
-    </div>
-</section>
 
     
 <!-- ================= PM SECTION ================= -->
@@ -71,17 +84,17 @@
     </p>
 
     <div class="image-center">
-        <img src="static/images/pm_lung.jpeg" class="img-mid" alt="PM penetration depths">
+        <img src="static/images/pm_lung.jpeg" class="img-mid">
         <p class="caption">Figure 2. PM10, PM2.5, and PM1 penetration depths.</p>
         <p class="figure-description">
             PM10, PM2.5, and PM1 differ in how deeply they penetrate the human respiratory system: 
-            PM10 particles are generally blocked in the upper airways, PM2.5 particles can reach the deeper lung regions including the alveoli, 
-            and PM1 particles are small enough to potentially cross into the bloodstream, posing significant health risks.
+    PM10 particles are generally blocked in the upper airways, PM2.5 particles can reach the deeper lung regions including the alveoli, 
+    and PM1 particles are small enough to potentially cross into the bloodstream, posing significant health risks.
         </p>
     </div>
 
     <div class="image-center">
-        <img src="static/images/HalfyearPM.png" class="img-large" alt="Half-year PM2.5 averages">
+        <img src="static/images/HalfyearPM.png" class="img-large">
         <p class="caption">Figure 3. Half-year PM2.5 averages (2016–2025).</p>
         <p class="figure-description">
             PM2.5 usually follows a seasonal cycle, but the first half of 2023 breaks the pattern with an unusually high value,
@@ -90,7 +103,7 @@
     </div>
 
     <div class="image-center">
-        <img src="static/images/blue.png" class="img-large" alt="Annual PM2.5 heatmap">
+        <img src="static/images/blue.png" class="img-large">
         <p class="caption">Figure 4. Annual PM2.5 averages by borough (2016–2025).</p>
         <p class="figure-description">
             This heatmap shows moderate fluctuations from 2016–2022, followed by a dramatic spike in 2023.
@@ -105,15 +118,14 @@
     <h2>Traffic Conditions in NYC</h2>
 
     <div class="image-center">
-        <img src="static/images/ny_traffic.jpeg" class="img-large" alt="NYC traffic">
+        <img src="static/images/ny_traffic.jpeg" class="img-large">
         <p class="caption">Figure 5. Heavy traffic in Manhattan.</p>
         <p class="figure-description">
-            NYC traffic is dense throughout the day, but the data shows that high congestion does not always correspond
-            to high PM2.5 levels.
-            Traffic is often blamed as the primary contributor to NYC's pollution.
-            To test this assumption, we compare PM2.5 and traffic trends across COVID and recovery.
-        </p>
-    </div>
+    NYC traffic is dense throughout the day, but the data shows that high congestion does not always correspond
+    to high PM2.5 levels.
+    Traffic is often blamed as the primary contributor to NYC's pollution.
+    To test this assumption, we compare PM2.5 and traffic trends across COVID and recovery.
+</p>
 </section>
 
 <!-- ================= COVID SECTION ================= -->
@@ -121,7 +133,7 @@
     <h2>COVID-19 & Mobility Changes</h2>
 
     <div class="image-center">
-        <img src="static/images/covid.jpeg" class="img-large" alt="COVID-19 illustration">
+        <img src="static/images/covid.jpeg" class="img-large">
         <p class="caption">Figure 6. COVID-19 pandemic representation.</p>
         <p class="figure-description">
             Lockdowns drastically changed how people moved through the city: subway rider decreased, remote work became widespread, and street activity declined sharply. 
@@ -130,7 +142,7 @@
     </div>
 
     <div class="image-center">
-        <img src="static/images/pm_traffic_distribution.png" class="img-large" alt="PM2.5 and traffic distribution">
+        <img src="static/images/pm_traffic_distribution.png" class="img-large">
         <p class="caption">Figure 7. Median PM2.5 & traffic volume across eras.</p>
         <p class="figure-description">
             Surprisingly, <strong>median daily traffic volume</strong> increased in several boroughs during COVID,
@@ -146,17 +158,17 @@
     <h2>Wildfire Smoke Impact</h2>
 
     <div class="image-row">
-        <div>
-            <img class="wildfire-img" src="static/images/canada_wildfrire.webp" alt="Canadian wildfire map">
-            <p class="caption">Figure 8-a. Canada wildfire event.</p>
+    <div>
+        <img class="wildfire-img" src="static/images/canada_wildfrire.webp">
+        <p class="caption">Figure 8-a. Canada wildfire event.</p>
             <p class="figure-description">
                 Large-scale wildfires sent smoke across the East Coast, affecting cities far beyond the fire zone.
             </p>
         </div>
 
-        <div>
-            <img class="wildfire-img" src="static/images/wildfire_ny.jpeg" alt="NYC orange sky from smoke">
-            <p class="caption">Figure 8-b. NYC sky turning orange from smoke.</p>
+            <div>
+        <img class="wildfire-img" src="static/images/wildfire_ny.jpeg">
+        <p class="caption">Figure 8-b. NYC sky turning orange from smoke.</p>
             <p class="figure-description">
                 Manhattan experienced severe visibility loss and hazardous PM2.5 levels during early June 2023.
             </p>
@@ -164,27 +176,44 @@
     </div>
 
     <div class="image-center">
-        <img src="static/images/2023.png" class="img-large" alt="2023 wildfire PM2.5 bar chart">
-        <p class="caption">Figure 9. NYC PM2.5 before vs during the 2023 wildfire.</p>
+    <img src="static/images/2023.png" class="img-large">
+    <p class="caption">Figure 9. NYC PM2.5 before vs during the 2023 wildfire.</p>
+    <p class="figure-description">
+        PM2.5 jumped from the <strong>2016–2023 May average (~6.8 µg/m³)</strong> to over 
+        <strong>27 µg/m³</strong> during the wildfire period. At this concentration—more than five times 
+        the WHO guideline—studies show a <strong>20–40% increase in asthma attacks</strong>, a 
+        <strong>5–15% rise in heart-attack and stroke–related emergency visits</strong>, and measurable 
+        reductions in lung function. Even short-term exposure at this level raises long-term risks such as 
+        <strong>cardiovascular disease</strong> and <strong>cancer</strong>, and wildfire-derived PM2.5 is 
+        known to be more toxic than typical urban emissions. This demonstrates how extreme external events 
+        can overwhelm local emission sources like traffic.
+    </p>
+</section>
+
+
+<!-- ================= NYC BOROUGH MAP (여기로 이동) ================= -->
+<section id="nyc-map" class="card-section">
+    <h2>NYC Borough Overview</h2>
+
+    <div class="image-center">
+        <img src="static/images/map.jpeg" class="img-large">
+        <p class="caption">Figure 1. Four NYC boroughs analyzed in this project.</p>
         <p class="figure-description">
-            PM2.5 jumped from the <strong>2016–2023 May average (~6.8 µg/m³)</strong> to over 
-            <strong>27 µg/m³</strong> during the wildfire period. At this concentration—more than five times 
-            the WHO guideline—studies show a <strong>20–40% increase in asthma attacks</strong>, a 
-            <strong>5–15% rise in heart-attack and stroke–related emergency visits</strong>, and measurable 
-            reductions in lung function. Even short-term exposure at this level raises long-term risks such as 
-            <strong>cardiovascular disease</strong> and <strong>cancer</strong>, and wildfire-derived PM2.5 is 
-            known to be more toxic than typical urban emissions. This demonstrates how extreme external events 
-            can overwhelm local emission sources like traffic.
+            Our analysis focuses on four boroughs — <strong>Bronx, Brooklyn, Manhattan, and Queens</strong>.  
+            Staten Island was excluded due to insufficient PM2.5 and traffic data coverage during the study period.  
+            Understanding the spatial distribution of these four boroughs helps interpret borough-level patterns 
+            in both PM2.5 trends and traffic behavior.
         </p>
     </div>
 </section>
+
 
 <!-- ================= RELATIONSHIP VISUALS ================= -->
 <section id="visualizations" class="card-section" style="box-shadow: none;">
     <h2>Relationship Between PM2.5 & Traffic</h2>
 
     <div class="image-center">
-        <img src="static/images/pm2.5_traffic_volume_distributionbyyear_line.png" class="img-large" alt="PM2.5 and traffic trends">
+        <img src="static/images/pm2.5_traffic_volume_distributionbyyear_line.png" class="img-large">
         <p class="caption">Figure 10. PM2.5 and traffic volume trends (2016–2025).</p>
         <p class="figure-description">
             These line charts show PM2.5 and traffic volume trends from 2016 to 2025 for each borough.
@@ -198,7 +227,7 @@
     </div>
 
     <div class="image-center">
-        <img src="static/images/PM_vs_Traffic_line.png" class="img-large" alt="PM2.5 vs traffic scatter plot">
+        <img src="static/images/PM_vs_Traffic_line.png" class="img-large">
         <p class="caption">Figure 11. Daily PM2.5 vs traffic (scatter with trend line).</p>
         <p class="figure-description">
             Each point in this scatter plot represents one day of data. The points form a wide, diffuse cloud rather
@@ -258,7 +287,7 @@
     <p class="reference-item">[8] OpenAQ. <em>Brooklyn PM2.5 Air Quality Measurements Dataset.</em></p>
 </section>
 
-<!-- ================= CONTACT INFORMATION ================= -->
+ <!-- ================= CONTACT INFORMATION ================= -->
 <section id="contact" class="card-section">
     <h2>Contact Information</h2>
 
@@ -282,8 +311,6 @@
         Mason Korea · Computational & Data Sciences
     </p>
 </section>
-
-</div> <!-- page-wrapper end -->
 
 <footer>
     <p>© 2025 NYC PM2.5 & Traffic Volume Project</p>
