@@ -38,10 +38,10 @@ body {
     width: 100%;
     border-bottom: 1px solid #ddd;
 
-    /* ===== 배경 이미지 + 밝은 오버레이 ===== */
     background-image:
         linear-gradient(rgba(255,255,255,0.75), rgba(255,255,255,0.88)),
-        url("static/images/trafficpm.jpeg");
+        url("../images/trafficpm.jpeg");
+
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
