@@ -308,3 +308,38 @@ html {
 section {
     scroll-margin-top: 90px;
 }
+
+/* ======================================================
+   🔥 새로 추가된 TABLE OF CONTENTS 스타일
+====================================================== */
+
+.toc-list {
+    list-style: none;          /* bullet 제거 */
+    padding: 0;
+    margin: 0 auto;
+    max-width: 420px;
+}
+
+.toc-list li {
+    margin: 6px 0;
+}
+
+.toc-list a {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 999px;      /* pill shape */
+    font-size: 16px;
+    font-weight: 500;
+    color: #111111;            /* 기본 검정 */
+    text-decoration: none;
+    transition: background 0.2s ease, 
+                color 0.2s ease,
+                transform 0.15s ease;
+}
+
+.toc-list a:hover {
+    background: var(--accent-light);
+    color: var(--accent-green);
+    text-decoration: none;
+    transform: translateY(-1px);
+}
